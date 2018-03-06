@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Note {
-    private String title, content;
+    private final String title;
+    private String content;
     private List<Comment> comments = new ArrayList();
     
     public Note(String title, String content)
@@ -19,13 +20,22 @@ public class Note {
     {
         comments.add(comment);
     }
+    
+    public List<Comment> getComments(){
+        return comments;
+    }
+    
     public String toString()
     {
         StringBuilder sb= new StringBuilder();
         sb.append("\nWPIS");
-        sb.append("\ntytuł: "+title);
-        sb.append("\ntreść: "+content);
-        sb.append("\nkomentarze: "+comments);
+        sb.append("\ntytuł: ").append(title);
+        sb.append("\ntreść: ").append(content);
+        sb.append("\nkomentarze: ").append(comments);
         return sb.toString();
+    }
+
+    public int numberOfComments() {
+        return comments.size();
     }
 }
